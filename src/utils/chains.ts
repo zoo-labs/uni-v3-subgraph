@@ -11,6 +11,7 @@ export enum ChainId {
   BSC = 56,
   CELO = 42220,
   MAINNET = 1,
+  LUX = 96369,
   MATIC = 137,
   OPTIMISM = 10,
   ZKSYNC_ERA = 324,
@@ -26,13 +27,14 @@ const BASE_NETWORK_NAME = 'base'
 const BLAST_MAINNET_NETWORK_NAME = 'blast-mainnet'
 const BSC_NETWORK_NAME = 'bsc'
 const CELO_NETWORK_NAME = 'celo'
+const LUX_NETWORK_NAME = 'lux'
 const MAINNET_NETWORK_NAME = 'mainnet'
 const MATIC_NETWORK_NAME = 'matic'
 const OPTIMISM_NETWORK_NAME = 'optimism'
+const SEPOLIA_NETWORK_NAME = 'sepolia'
+const WORLDCHAIN_MAINNET_NETWORK_NAME = 'worldchain-mainnet'
 const ZKSYNC_ERA_NETWORK_NAME = 'zksync-era'
 const ZORA_MAINNET_NETWORK_NAME = 'zora-mainnet'
-const WORLDCHAIN_MAINNET_NETWORK_NAME = 'worldchain-mainnet'
-const SEPOLIA_NETWORK_NAME = 'sepolia'
 
 // Note: All token and pool addresses should be lowercased!
 export class SubgraphConfig {
@@ -224,6 +226,25 @@ export function getSubgraphConfig(): SubgraphConfig {
         '0x17700282592d6917f6a73d0bf8accf4d578c131e', // MOO
         '0x66803fb87abd4aac3cbb3fad7c3aa01f6f3fb207', // Portal Eth
         '0xbaab46e28388d2779e6e31fd00cf0e5ad95e327b', // WBTC
+      ],
+      tokenOverrides: [],
+      poolsToSkip: [],
+      poolMappings: [],
+    }
+  } else if (selectedNetwork == LUX_NETWORK_NAME) {
+    return {
+      factoryAddress: '0x80bBc7C4C7a59C899D1B37BC14539A22D5830a84',
+      stablecoinWrappedNativePoolAddress: '0x000000000000000000000000000000000000dead', // LUSD-LETH 0.3% pool
+      stablecoinIsToken0: false,
+      wrappedNativeAddress: '0x4888E4a2Ee0F03051c72D2BD3ACf755eD3498B3E',
+      minimumNativeLocked: BigDecimal.fromString('4'),
+      stablecoinAddresses: [
+        '0x833589fcd6edb6e08f4c7c32d4f71b54bda02913', // USDC
+      ],
+      whitelistTokens: [
+        '0x4888E4a2Ee0F03051c72D2BD3ACf755eD3498B3E', // WLUX
+        '0x833589fcd6edb6e08f4c7c32d4f71b54bda02913', // USDC
+        '0xdf1De693C31e2A5eb869c329529623556B20AbF3', // USDT
       ],
       tokenOverrides: [],
       poolsToSkip: [],

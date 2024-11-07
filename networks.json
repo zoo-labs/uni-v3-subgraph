@@ -35,6 +35,12 @@
       "startBlock": 13916355
     }
   },
+  "lux": {
+    "Factory": {
+      "address": "0x80bBc7C4C7a59C899D1B37BC14539A22D5830a84",
+      "startBlock": 1
+    }
+  },
   "mainnet": {
     "Factory": {
       "address": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
