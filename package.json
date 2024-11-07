@@ -8,13 +8,12 @@
     "build": "run-s codegen && graph build",
     "build:docker": "docker build -t matchstick .",
     "buildonly": "graph build",
-    "deploy:alchemy": "graph deploy --node https://subgraphs.alchemy.com/api/subgraphs/deploy --ipfs https://ipfs.satsuma.xyz",
     "codegen": "graph codegen --output-dir src/types/",
     "test": "graph test -d",
     "test:no-tty": "docker run -i --rm --mount type=bind,source=$INIT_CWD,target=/matchstick matchstick",
-    "create": "graph create luxfi/uniswap-v3 --node http://192.168.1.165:8020",
-    "deploy": "RUST_LOG=debug graph deploy luxfi/uniswap-v3 --ipfs http://192.168.1.165:5555 --node http://192.168.1.165:8020",
-    "watch": "graph deploy luxfi/uniswap-v3 --watch --debug --node http://192.168.1.165:8020 --ipfs http://192.168.1.165:5555"
+    "create": "graph create luxfi/uniswap-v3 --node https://graph.lux.network",
+    "deploy": "RUST_LOG=debug graph deploy luxfi/uniswap-v3 --ipfs https://ipfs.lux.network --node https://graph.lux.network",
+    "watch-local": "graph deploy luxfi/uniswap-v3 --watch --debug --node http://127.0.0.1:8020 --ipfs http://127.0.0.1:5000"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.64.1",
