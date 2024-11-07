@@ -1,7 +1,7 @@
 {
-  "name": "uniswap-v3-subgraph",
+  "name": "@luxfi/uniswap-v3-subgraph",
   "version": "1.0.0",
-  "repository": "https://github.com/graphprotocol/uniswap-v3-subgraph",
+  "repository": "https://github.com/luxfi/uniswap-v3-subgraph",
   "license": "GPL-3.0-or-later",
   "scripts": {
     "lint": "eslint . --ext .ts --fix",
@@ -12,12 +12,9 @@
     "codegen": "graph codegen --output-dir src/types/",
     "test": "graph test -d",
     "test:no-tty": "docker run -i --rm --mount type=bind,source=$INIT_CWD,target=/matchstick matchstick",
-    "create-local": "graph create ianlapham/uniswap-v3 --node http://127.0.0.1:8020",
-    "deploy-local": "graph deploy ianlapham/uniswap-v3 --debug --ipfs http://localhost:5001 --node http://127.0.0.1:8020",
-    "deploy": "graph deploy ianlapham/uniswap-v3-subgraph --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/ --debug",
-    "deploy-dev": "graph deploy sommelier/uniswap-v3 --ipfs http://35.197.14.14:5000/ --node http://35.197.14.14:8020/ --debug",
-    "deploy-staging": "graph deploy $THE_GRAPH_GITHUB_USER/$THE_GRAPH_SUBGRAPH_NAME /Uniswap --ipfs https://api.staging.thegraph.com/ipfs/ --node https://api.staging.thegraph.com/deploy/",
-    "watch-local": "graph deploy ianlapham/uniswap-v3 --watch --debug --node http://127.0.0.1:8020/ --ipfs http://localhost:5001"
+    "create": "graph create luxfi/uniswap-v3 --node http://192.168.1.165:8020",
+    "deploy": "RUST_LOG=debug graph deploy luxfi/uniswap-v3 --ipfs http://192.168.1.165:5555 --node http://192.168.1.165:8020",
+    "watch": "graph deploy luxfi/uniswap-v3 --watch --debug --node http://192.168.1.165:8020 --ipfs http://192.168.1.165:5555"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.64.1",
