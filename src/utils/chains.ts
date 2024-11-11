@@ -234,17 +234,17 @@ export function getSubgraphConfig(): SubgraphConfig {
   } else if (selectedNetwork == LUX_NETWORK_NAME) {
     return {
       factoryAddress: '0x80bBc7C4C7a59C899D1B37BC14539A22D5830a84',
-      stablecoinWrappedNativePoolAddress: '0x000000000000000000000000000000000000dead', // LUSD-LETH 0.3% pool
+      stablecoinWrappedNativePoolAddress: '0x5914d1fb5ec9aa5ac9610afdb8e9a2f209d2b345', // USDC-WLUX 0.3% pool
       stablecoinIsToken0: false,
-      wrappedNativeAddress: '0x4888E4a2Ee0F03051c72D2BD3ACf755eD3498B3E',
+      wrappedNativeAddress: '0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e',
       minimumNativeLocked: BigDecimal.fromString('4'),
       stablecoinAddresses: [
-        '0x833589fcd6edb6e08f4c7c32d4f71b54bda02913', // USDC
+        '0x8031e9b0d02a792cfefaa2bdca6e1289d385426f', // USDC
       ],
       whitelistTokens: [
-        '0x4888E4a2Ee0F03051c72D2BD3ACf755eD3498B3E', // WLUX
-        '0x833589fcd6edb6e08f4c7c32d4f71b54bda02913', // USDC
-        '0xdf1De693C31e2A5eb869c329529623556B20AbF3', // USDT
+        '0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e', // WLUX
+        '0x8031e9b0d02a792cfefaa2bdca6e1289d385426f', // USDC
+        '0xdf1de693c31e2a5eb869c329529623556b20abf3', // USDT
       ],
       tokenOverrides: [],
       poolsToSkip: [],

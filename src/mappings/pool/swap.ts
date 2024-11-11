@@ -175,6 +175,11 @@ export function handleSwapHelper(event: SwapEvent, subgraphConfig: SubgraphConfi
     swap.sqrtPriceX96 = event.params.sqrtPriceX96
     swap.logIndex = event.logIndex
 
+    factory.save()
+    pool.save()
+    token0.save()
+    token1.save()
+
     // interval data
     const uniswapDayData = updateUniswapDayData(event, factoryAddress)
     const poolDayData = updatePoolDayData(event)
@@ -228,9 +233,5 @@ export function handleSwapHelper(event: SwapEvent, subgraphConfig: SubgraphConfi
     token0HourData.save()
     token1HourData.save()
     poolHourData.save()
-    factory.save()
-    pool.save()
-    token0.save()
-    token1.save()
   }
 }
