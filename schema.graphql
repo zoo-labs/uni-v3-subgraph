@@ -72,6 +72,8 @@ type Token @entity {
   whitelistPools: [Pool!]!
   # derived fields
   tokenDayData: [TokenDayData!]! @derivedFrom(field: "token")
+  # derived fields
+  tokenHourData: [TokenHourData!]! @derivedFrom(field: "token")
 }
 
 type Pool @entity {
