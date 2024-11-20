@@ -12,6 +12,7 @@ export enum ChainId {
   CELO = 42220,
   MAINNET = 1,
   LUX = 96369,
+  ZOO = 200200,
   MATIC = 137,
   OPTIMISM = 10,
   ZKSYNC_ERA = 324,
@@ -28,6 +29,7 @@ const BLAST_MAINNET_NETWORK_NAME = 'blast-mainnet'
 const BSC_NETWORK_NAME = 'bsc'
 const CELO_NETWORK_NAME = 'celo'
 const LUX_NETWORK_NAME = 'lux'
+const ZOO_NETWORK_NAME = 'zoo'
 const MAINNET_NETWORK_NAME = 'mainnet'
 const MATIC_NETWORK_NAME = 'matic'
 const OPTIMISM_NETWORK_NAME = 'optimism'
@@ -234,7 +236,7 @@ export function getSubgraphConfig(): SubgraphConfig {
   } else if (selectedNetwork == LUX_NETWORK_NAME) {
     return {
       factoryAddress: '0x80bBc7C4C7a59C899D1B37BC14539A22D5830a84',
-      stablecoinWrappedNativePoolAddress: '0x5914d1fb5ec9aa5ac9610afdb8e9a2f209d2b345', // USDC-WLUX 0.3% pool
+      stablecoinWrappedNativePoolAddress: '0x5914d1fb5ec9aa5ac9610afdb8e9a2f209d2b345',
       stablecoinIsToken0: false,
       wrappedNativeAddress: '0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e',
       minimumNativeLocked: BigDecimal.fromString('4'),
@@ -243,6 +245,25 @@ export function getSubgraphConfig(): SubgraphConfig {
       ],
       whitelistTokens: [
         '0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e', // WLUX
+        '0x8031e9b0d02a792cfefaa2bdca6e1289d385426f', // USDC
+        '0xdf1de693c31e2a5eb869c329529623556b20abf3', // USDT
+      ],
+      tokenOverrides: [],
+      poolsToSkip: [],
+      poolMappings: [],
+    }
+  } else if (selectedNetwork == ZOO_NETWORK_NAME) {
+    return {
+      factoryAddress: '0x80bBc7C4C7a59C899D1B37BC14539A22D5830a84',
+      stablecoinWrappedNativePoolAddress: '0x5914d1fb5ec9aa5ac9610afdb8e9a2f209d2b345',
+      stablecoinIsToken0: false,
+      wrappedNativeAddress: '0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e',
+      minimumNativeLocked: BigDecimal.fromString('4'),
+      stablecoinAddresses: [
+        '0x8031e9b0d02a792cfefaa2bdca6e1289d385426f', // USDC
+      ],
+      whitelistTokens: [
+        '0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e', // WZOO
         '0x8031e9b0d02a792cfefaa2bdca6e1289d385426f', // USDC
         '0xdf1de693c31e2a5eb869c329529623556b20abf3', // USDT
       ],

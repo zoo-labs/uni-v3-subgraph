@@ -11,11 +11,11 @@
     "codegen": "graph codegen --output-dir src/types/",
     "test": "graph test -d",
     "test:no-tty": "docker run -i --rm --mount type=bind,source=$INIT_CWD,target=/matchstick matchstick",
-    "create-lux": "graph create lux/uniswap-v3 --node https://graph.lux.network",
-    "deploy-lux": "RUST_LOG=debug graph deploy lux/uniswap-v3 --ipfs https://ipfs.lux.network --node https://graph-admin.lux.network",
-    "watch-local": "graph deploy lux/uniswap-v3 --watch --debug --node http://127.0.0.1:8020 --ipfs http://127.0.0.1:5000",
-    "create-local": "graph create lux/uniswap-v3 --node http://127.0.0.1:8020",
-    "deploy-local": "graph deploy lux/uniswap-v3 --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:8020"
+    "create-zoo": "graph create zoo/uniswap-v3 --node http://192.168.1.165:8020",
+    "deploy-zoo": "RUST_LOG=debug graph deploy zoo/uniswap-v3 --ipfs https://ipfs.lux.network --node http://192.168.1.165:8020",
+    "watch-local": "graph deploy zoo/uniswap-v3 --watch --debug --node http://127.0.0.1:8020 --ipfs http://127.0.0.1:5001",
+    "create-local": "graph create zoo/uniswap-v3 --node http://127.0.0.1:8020",
+    "deploy-local": "graph deploy zoo/uniswap-v3 --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:8020"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.64.1",
