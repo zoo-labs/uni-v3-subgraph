@@ -2,7 +2,7 @@
 
 ### Subgraph Endpoint
 
-Synced at: https://graph.lux.network/subgraphs/name/lux/uniswap-v3?selected=playground
+Synced at: https://graph.zoo.network/subgraphs/name/zoo/uniswap-v3?selected=playground
 
 Pending Changes at same URL
 
