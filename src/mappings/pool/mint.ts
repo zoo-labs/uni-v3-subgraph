@@ -8,6 +8,7 @@ import { ONE_BI } from '../../utils/constants'
 import {
   updatePoolDayData,
   updatePoolHourData,
+  updateToken5MinData,
   updateTokenDayData,
   updateTokenHourData,
   updateUniswapDayData,
@@ -132,6 +133,8 @@ export function handleMintHelper(event: MintEvent, subgraphConfig: SubgraphConfi
     updateTokenDayData(token1 as Token, event)
     updateTokenHourData(token0 as Token, event)
     updateTokenHourData(token1 as Token, event)
+    updateToken5MinData(token0 as Token, event)
+    updateToken5MinData(token1 as Token, event)
 
     token0.save()
     token1.save()

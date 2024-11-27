@@ -7,6 +7,7 @@ import {
   PoolDayData,
   PoolHourData,
   Token,
+  Token5MinData,
   TokenDayData,
   TokenHourData,
   UniswapDayData,
@@ -202,4 +203,44 @@ export function updateTokenHourData(token: Token, event: ethereum.Event): TokenH
   tokenHourData.save()
 
   return tokenHourData as TokenHourData
+}
+
+export function updateToken5MinData(token: Token, event: ethereum.Event): Token5MinData {
+  const bundle = Bundle.load('1')!
+  const timestamp = event.block.timestamp.toI32()
+  const hourIndex = timestamp / 300 // get unique hour within unix history
+  const hourStartUnix = hourIndex * 300 // want the rounded effect
+  const tokenHourID = token.id.toString().concat('-').concat(hourIndex.toString())
+  let token5MinData = Token5MinData.load(tokenHourID)
+  const tokenPrice = token.derivedETH.times(bundle.ethPriceUSD)
+
+  if (token5MinData === null) {
+    token5MinData = new Token5MinData(tokenHourID)
+    token5MinData.periodStartUnix = hourStartUnix
+    token5MinData.token = token.id
+    token5MinData.volume = ZERO_BD
+    token5MinData.volumeUSD = ZERO_BD
+    token5MinData.untrackedVolumeUSD = ZERO_BD
+    token5MinData.feesUSD = ZERO_BD
+    token5MinData.open = tokenPrice
+    token5MinData.high = tokenPrice
+    token5MinData.low = tokenPrice
+    token5MinData.close = tokenPrice
+  }
+
+  if (tokenPrice.gt(token5MinData.high)) {
+    token5MinData.high = tokenPrice
+  }
+
+  if (tokenPrice.lt(token5MinData.low)) {
+    token5MinData.low = tokenPrice
+  }
+
+  token5MinData.close = tokenPrice
+  token5MinData.priceUSD = tokenPrice
+  token5MinData.totalValueLocked = token.totalValueLocked
+  token5MinData.totalValueLockedUSD = token.totalValueLockedUSD
+  token5MinData.save()
+
+  return token5MinData as Token5MinData
 }

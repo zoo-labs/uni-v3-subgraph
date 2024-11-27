@@ -255,7 +255,7 @@ export function getSubgraphConfig(): SubgraphConfig {
   } else if (selectedNetwork == ZOO_NETWORK_NAME) {
     return {
       factoryAddress: '0x80bBc7C4C7a59C899D1B37BC14539A22D5830a84',
-      stablecoinWrappedNativePoolAddress: '0x5914d1fb5ec9aa5ac9610afdb8e9a2f209d2b345',
+      stablecoinWrappedNativePoolAddress: '0x474892d48f03f002a51b83fee5b72ad252a87d5f',
       stablecoinIsToken0: false,
       wrappedNativeAddress: '0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e',
       minimumNativeLocked: BigDecimal.fromString('4'),
