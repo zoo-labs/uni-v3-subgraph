@@ -104,7 +104,8 @@ export function findNativePerToken(
             // get the derived ETH in pool
             if (token1) {
               const ethLocked = pool.totalValueLockedToken1.times(token1.derivedETH)
-              if (ethLocked.gt(largestLiquidityETH) && ethLocked.gt(minimumNativeLocked)) {
+              // if (ethLocked.gt(largestLiquidityETH) && ethLocked.gt(minimumNativeLocked)) 
+                {
                 largestLiquidityETH = ethLocked
                 // token1 per our token * Eth per token1
                 priceSoFar = pool.token1Price.times(token1.derivedETH as BigDecimal)
@@ -116,7 +117,8 @@ export function findNativePerToken(
             // get the derived ETH in pool
             if (token0) {
               const ethLocked = pool.totalValueLockedToken0.times(token0.derivedETH)
-              if (ethLocked.gt(largestLiquidityETH) && ethLocked.gt(minimumNativeLocked)) {
+              // if (ethLocked.gt(largestLiquidityETH) && ethLocked.gt(minimumNativeLocked)) 
+                {
                 largestLiquidityETH = ethLocked
                 // token0 per our token * ETH per token0
                 priceSoFar = pool.token0Price.times(token0.derivedETH as BigDecimal)

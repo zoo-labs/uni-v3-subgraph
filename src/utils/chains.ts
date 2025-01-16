@@ -255,17 +255,17 @@ export function getSubgraphConfig(): SubgraphConfig {
   } else if (selectedNetwork == ZOO_NETWORK_NAME) {
     return {
       factoryAddress: '0x80bBc7C4C7a59C899D1B37BC14539A22D5830a84',
-      stablecoinWrappedNativePoolAddress: '0x474892d48f03f002a51b83fee5b72ad252a87d5f',
+      stablecoinWrappedNativePoolAddress: '0x37011bb281676f85962fb35c674f7e9eb7584452',
       stablecoinIsToken0: false,
       wrappedNativeAddress: '0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e',
       minimumNativeLocked: BigDecimal.fromString('4'),
       stablecoinAddresses: [
-        '0x8031e9b0d02a792cfefaa2bdca6e1289d385426f', // USDC
+        '0x848cff46eb323f323b6bbe1df274e40793d7f2c2', // ZUSD
       ],
       whitelistTokens: [
         '0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e', // WZOO
-        '0x8031e9b0d02a792cfefaa2bdca6e1289d385426f', // USDC
-        '0xdf1de693c31e2a5eb869c329529623556b20abf3', // USDT
+        '0x848cff46eb323f323b6bbe1df274e40793d7f2c2', // ZUSD
+        // '0xed15c23b27a69b5bd50b1eef5b8f1c8d849462b7', // SLOG
       ],
       tokenOverrides: [],
       poolsToSkip: [],
